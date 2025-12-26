@@ -1,4 +1,4 @@
-# MortgagePlanCalculator
+# Mortgage Plan Calculator
 Unlike simplified calculators, this application separates principal, interest, administration fees, and establishment fees, making it easier to see how much value is lost to fees versus actual debt reduction.
 ![Loan Repayment Calculator interface](https://i.imgur.com/DPszulM.png)
 ![Loan Repayment Plan print](https://i.imgur.com/lq6YvWd.png)
