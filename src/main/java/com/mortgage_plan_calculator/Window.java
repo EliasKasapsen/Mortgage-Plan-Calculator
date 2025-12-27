@@ -44,10 +44,17 @@ public class Window extends Application
     private static final String PROMPT_ENTER_MONTHS = "Enter in months";
     
     private final HashMap<String, Calculations> mPlans;
+private static final String STYLE_ACTIVE = "-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-color: #2e7d32; -fx-border-width: 2px; -fx-background-insets: 0;";
+private static final String STYLE_INACTIVE = "-fx-background-color: #e0e0e0; -fx-text-fill: #666666; -fx-font-weight: normal; -fx-border-color: transparent; -fx-background-insets: 0;";
     
     public Window()
     {
         mPlans = new HashMap<>();
+    }
+
+    private void toggleButtonStyles(Button active, Button inactive) {
+        active.setStyle(STYLE_ACTIVE);
+        inactive.setStyle(STYLE_INACTIVE);
     }
 
     // JavaFX GUI methods
@@ -158,39 +165,42 @@ public class Window extends Application
         timeLimitField.setManaged(false);
         loanAmountLimitField.setVisible(false);
         loanAmountLimitField.setManaged(false);
+        
+        // --- MAIN CHOICE BUTTONS ---
+        setRepaymentTimeButton.setStyle(STYLE_ACTIVE);
+        setFixedMonthlyRepaymentButton.setStyle(STYLE_INACTIVE);
 
-        // Set button actions to toggle between them
         setRepaymentTimeButton.setOnAction(e -> {
+            toggleButtonStyles(setRepaymentTimeButton, setFixedMonthlyRepaymentButton);
             fixedRepaymentField.clear();
             repaymentTimeField.setVisible(true);
             fixedRepaymentField.setVisible(false);
-            // Switch the VBox content back to repayment time
-            repaymentBox.getChildren().clear();
-            repaymentBox.getChildren().add(repaymentTimeField);
+            repaymentBox.getChildren().setAll(repaymentTimeField); // Cleaner than clear/add
         });
 
         setFixedMonthlyRepaymentButton.setOnAction(e -> {
+            toggleButtonStyles(setFixedMonthlyRepaymentButton, setRepaymentTimeButton);
             repaymentTimeField.clear();
             repaymentTimeField.setVisible(false);
             fixedRepaymentField.setVisible(true);
-            // Switch the VBox content to fixed repayment
-            repaymentBox.getChildren().clear();
-            repaymentBox.getChildren().add(fixedRepaymentField);
+            repaymentBox.getChildren().setAll(fixedRepaymentField);
         });
 
-        // Add event handlers to toggle visibility
+        // --- OPTIONS TOGGLE BUTTON ---
         userDefinedPlanButton.setOnAction(e -> {
-            boolean isCurrentlyVisible = userDefinedOptionsBox.isVisible();
-            //handleSwitch(isCurrentlyVisible);
-            // Toggle visibility and management
-            userDefinedOptionsBox.setVisible(!isCurrentlyVisible);
-            userDefinedOptionsBox.setManaged(!isCurrentlyVisible); // Add this line
+            boolean isVisible = !userDefinedOptionsBox.isVisible();
+            userDefinedOptionsBox.setVisible(isVisible);
+            userDefinedOptionsBox.setManaged(isVisible);
             
-            // Reset the visibility of input fields when hiding
-            if (!isCurrentlyVisible) {
+            // Highlight the "Reveal" button itself when the menu is open
+            userDefinedPlanButton.setStyle(isVisible ? STYLE_ACTIVE : STYLE_INACTIVE);
+            
+            if (!isVisible) {
                 timeLimitField.clear();
                 loanAmountLimitField.clear();
-
+                // Reset sub-button visuals when hiding the menu
+                setTimeLimitButton.setStyle(STYLE_INACTIVE);
+                setLoanAmountLimitButton.setStyle(STYLE_INACTIVE);
                 timeLimitField.setVisible(false);
                 timeLimitField.setManaged(false);
                 loanAmountLimitField.setVisible(false);
@@ -198,20 +208,25 @@ public class Window extends Application
             }
         });
 
+        // Set initial styles for the sub-buttons
+        setTimeLimitButton.setStyle(STYLE_INACTIVE);
+        setLoanAmountLimitButton.setStyle(STYLE_INACTIVE);
+
+        // --- SUB-OPTIONS BUTTONS ---
         setTimeLimitButton.setOnAction(e -> {
+            toggleButtonStyles(setTimeLimitButton, setLoanAmountLimitButton);
             loanAmountLimitField.clear();
             timeLimitField.setVisible(true);
-            timeLimitField.setManaged(true); // Make it part of layout calculations
-        
+            timeLimitField.setManaged(true);
             loanAmountLimitField.setVisible(false);
-            loanAmountLimitField.setManaged(false); // Exclude from layout
+            loanAmountLimitField.setManaged(false);
         });
-        
+
         setLoanAmountLimitButton.setOnAction(e -> {
+            toggleButtonStyles(setLoanAmountLimitButton, setTimeLimitButton);
             timeLimitField.clear();
             loanAmountLimitField.setVisible(true);
             loanAmountLimitField.setManaged(true);
-        
             timeLimitField.setVisible(false);
             timeLimitField.setManaged(false);
         });
