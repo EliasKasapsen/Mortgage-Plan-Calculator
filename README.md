@@ -45,35 +45,67 @@ The goal of this project is clarity over abstraction:
 
 This makes the tool suitable for education, comparison, and analysis, not just estimation.
 
-## Quick start
-### 1. Clone the repository
-```
-git clone https://github.com/EliasKasapsen/Loan-Repayment-Plan-Calculator-JavaFX.git
-cd Loan-Repayment-Plan-Calculator-JavaFX
-```
-### 2. Compile the project
-Make sure you have Java 17 (or your version) installed. Then run:
-```
-javac -d bin src/main/java/com/example/*.java
-```
-`-d bin` creates a `bin` folder for compiled classes.
+## Prerequisites
+To run this project, you need to have the following installed:
+- Java JDK 23 (or higher)
+- Maven (build automation tool)
 
-### 3. Run the application
+### Installation
+Clone the repository:
 ```
-java -cp bin com.example.App
+git clone https://github.com/EliasKasapsen/Mortgage-Plan-Calculator.git
+cd Mortgage-Plan-Calculator
 ```
+Verify your Java version 23:
+```
+java -version
+```
+
+### How to run
+Using VS Code (Recommended)
+1. Open the folder in VS Code.
+2. Install the Extension Pack for Java.
+3. Open App.java.
+4. Click the Run button above the main method.
+
 ### Folder Structure
 ```
-demo/
-├─ src/
-│    └─ main/java/com/example/
-│        ├─ App.java
-│        ├─ Calculations.java
-│        ├─ InputValues.java
-│        ├─ InterchangeableValues.java
-│        ├─ MandatoryValues.java
-│        └─ Window.java
-├─ bin/  ← compiled classes will appear here
-├─ README.md
-└─ .gitignore
+mortgage_plan_calculator
+├── README.md
+├── pom.xml
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   ├── com
+│   │   │   │   └── mortgage_plan_calculator
+│   │   │   │       ├── App.java
+│   │   │   │       ├── Calculations.java
+│   │   │   │       ├── InputValues.java
+│   │   │   │       ├── InterchangeableValues.java
+│   │   │   │       ├── MandatoryValues.java
+│   │   │   │       └── Window.java
+│   │   │   └── module-info.java
+│   │   └── resources
+│   │       └── com
+│   │           └── mortgage_plan_calculator
+│   │               ├── primary.fxml
+│   │               └── secondary.fxml
+│   └── test
+│       └── java
+└── target
+    ├── classes
+    │   ├── com
+    │   │   └── mortgage_plan_calculator
+    │   │       ├── App.class
+    │   │       ├── Calculations.class
+    │   │       ├── InputValues.class
+    │   │       ├── InterchangeableValues.class
+    │   │       ├── MandatoryValues.class
+    │   │       ├── Window.class
+    │   │       ├── primary.fxml
+    │   │       └── secondary.fxml
+    │   └── module-info.class
+    └── test-classes
+
+16 directories, 20 files 
 ```
