@@ -44,7 +44,7 @@ public class Window extends Application
     private static final String PROMPT_ENTER_MONTHS = "Enter in months";
     
     private final HashMap<String, Calculations> mPlans;
-private static final String STYLE_ACTIVE = "-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-color: #2e7d32; -fx-border-width: 2px; -fx-background-insets: 0;";
+private static final String STYLE_ACTIVE = "-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-color: #4CAF50; -fx-border-width: 2px; -fx-background-insets: 0;";
 private static final String STYLE_INACTIVE = "-fx-background-color: #e0e0e0; -fx-text-fill: #666666; -fx-font-weight: normal; -fx-border-color: transparent; -fx-background-insets: 0;";
     
     public Window()
