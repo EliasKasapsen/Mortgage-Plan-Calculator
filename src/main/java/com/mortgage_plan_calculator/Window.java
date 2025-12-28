@@ -40,12 +40,12 @@ public class Window extends Application
 
     private static final String PROMPT_ENTER_NAME = "Enter name";
     private static final String PROMPT_ENTER_AMOUNT = "Enter amount";
-    private static final String PROMPT_ENTER_INTEREST_RATE = "Enter rate in percentage";
+    private static final String PROMPT_ENTER_INTEREST_RATE = "Enter rate (X.XXX)%";
     private static final String PROMPT_ENTER_MONTHS = "Enter in months";
     
     private final HashMap<String, Calculations> mPlans;
-private static final String STYLE_ACTIVE = "-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-color: #4CAF50; -fx-border-width: 2px; -fx-background-insets: 0;";
-private static final String STYLE_INACTIVE = "-fx-background-color: #e0e0e0; -fx-text-fill: #666666; -fx-font-weight: normal; -fx-border-color: transparent; -fx-background-insets: 0;";
+    private static final String STYLE_ACTIVE = "-fx-background-color: #45a049; -fx-text-fill: white; -fx-font-weight: bold;";
+    private static final String STYLE_INACTIVE = "";
     
     public Window()
     {
@@ -141,6 +141,10 @@ private static final String STYLE_INACTIVE = "-fx-background-color: #e0e0e0; -fx
         establishmentFeeField.setMaxWidth(150);
         adminFeeField.setPrefWidth(150);
         adminFeeField.setMaxWidth(150);
+        setRepaymentTimeButton.setPrefWidth(170);
+        setRepaymentTimeButton.setMaxWidth(170);
+        setFixedMonthlyRepaymentButton.setPrefWidth(170);
+        setFixedMonthlyRepaymentButton.setMaxWidth(170);
         repaymentTimeField.setPrefWidth(150);
         repaymentTimeField.setMaxWidth(150);
         fixedRepaymentField.setPrefWidth(150);
@@ -187,12 +191,32 @@ private static final String STYLE_INACTIVE = "-fx-background-color: #e0e0e0; -fx
         });
 
         // --- OPTIONS TOGGLE BUTTON ---
+        // 1. Initial Style (Standard/Inactive)
+        userDefinedPlanButton.setStyle(STYLE_INACTIVE);
+
+        // 2. Hover Logic: Only show light green if the menu is ALREADY open
+        userDefinedPlanButton.setOnMouseEntered(e -> {
+            if (userDefinedOptionsBox.isVisible()) {
+                userDefinedPlanButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;");
+            }
+        });
+
+        // 3. Exit Logic: Return to Dark Green if open, or Standard Gray if closed
+        userDefinedPlanButton.setOnMouseExited(e -> {
+            if (userDefinedOptionsBox.isVisible()) {
+                userDefinedPlanButton.setStyle(STYLE_ACTIVE);
+            } else {
+                userDefinedPlanButton.setStyle(STYLE_INACTIVE);
+            }
+        });
+
+        // 4. Toggle Logic
         userDefinedPlanButton.setOnAction(e -> {
             boolean isVisible = !userDefinedOptionsBox.isVisible();
             userDefinedOptionsBox.setVisible(isVisible);
             userDefinedOptionsBox.setManaged(isVisible);
             
-            // Highlight the "Reveal" button itself when the menu is open
+            // Switch between Active (Green) and Inactive (Gray)
             userDefinedPlanButton.setStyle(isVisible ? STYLE_ACTIVE : STYLE_INACTIVE);
             
             if (!isVisible) {
