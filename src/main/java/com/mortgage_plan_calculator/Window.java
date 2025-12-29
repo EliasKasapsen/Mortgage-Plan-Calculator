@@ -129,36 +129,36 @@ public class Window extends Application
         TextField loanAmountLimitField = createTextField(PROMPT_ENTER_AMOUNT);
 
         // Set width size on input field
-        planNameField.setPrefWidth(150);
-        planNameField.setMaxWidth(150);
-        loanAmountField.setPrefWidth(150);
-        loanAmountField.setMaxWidth(150);
-        equityField.setPrefWidth(150);
-        equityField.setMaxWidth(150);
-        interestField.setPrefWidth(150);
-        interestField.setMaxWidth(150);
-        establishmentFeeField.setPrefWidth(150);
-        establishmentFeeField.setMaxWidth(150);
-        adminFeeField.setPrefWidth(150);
-        adminFeeField.setMaxWidth(150);
+        planNameField.setPrefWidth(170);
+        planNameField.setMaxWidth(170);
+        loanAmountField.setPrefWidth(170);
+        loanAmountField.setMaxWidth(170);
+        equityField.setPrefWidth(170);
+        equityField.setMaxWidth(170);
+        interestField.setPrefWidth(170);
+        interestField.setMaxWidth(170);
+        establishmentFeeField.setPrefWidth(170);
+        establishmentFeeField.setMaxWidth(170);
+        adminFeeField.setPrefWidth(170);
+        adminFeeField.setMaxWidth(170);
         setRepaymentTimeButton.setPrefWidth(170);
         setRepaymentTimeButton.setMaxWidth(170);
         setFixedMonthlyRepaymentButton.setPrefWidth(170);
         setFixedMonthlyRepaymentButton.setMaxWidth(170);
-        repaymentTimeField.setPrefWidth(150);
-        repaymentTimeField.setMaxWidth(150);
-        fixedRepaymentField.setPrefWidth(150);
-        fixedRepaymentField.setMaxWidth(150);
+        repaymentTimeField.setPrefWidth(170);
+        repaymentTimeField.setMaxWidth(170);
+        fixedRepaymentField.setPrefWidth(170);
+        fixedRepaymentField.setMaxWidth(170);
         userDefinedPlanButton.setPrefWidth(350);
         userDefinedPlanButton.setMaxWidth(350);
         setTimeLimitButton.setPrefWidth(170);
         setTimeLimitButton.setMaxWidth(170);
-        timeLimitField.setPrefWidth(150);
-        timeLimitField.setMaxWidth(150);
+        timeLimitField.setPrefWidth(170);
+        timeLimitField.setMaxWidth(170);
         setLoanAmountLimitButton.setPrefWidth(170);
         setLoanAmountLimitButton.setMaxWidth(170);
-        loanAmountLimitField.setPrefWidth(150);
-        loanAmountLimitField.setMaxWidth(150);
+        loanAmountLimitField.setPrefWidth(170);
+        loanAmountLimitField.setMaxWidth(170);
 
         // Initially hide the sub-buttons
         repaymentTimeField.setVisible(true); // Initially, show repayment time input
