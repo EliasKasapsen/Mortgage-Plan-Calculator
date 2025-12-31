@@ -38,8 +38,8 @@ public final class Calculations
         interchangeableValues.setLoanAmountAfterEquity(loanAmount);
         double monthlyInterestRate = mandatoryValues.getInterestRate() / 100 / 12;
         int repaymentPeriod = interchangeableValues.getRepaymentPeriod();
-        double establishmentFee = mandatoryValues.getEstablishmentFee();
-        double adminFee = mandatoryValues.getAdminFee();
+        double establishmentFee = interchangeableValues.getEstablishmentFee();
+        double adminFee = interchangeableValues.getAdminFee();
         double totalMonthlyPayment = interchangeableValues.getTotalMonthlyPayment();
         int repaymentPeriodLimit = interchangeableValues.getRepaymentPeriodLimit();
         double loanAmountLimit = interchangeableValues.getLoanAmountLimit();
@@ -192,9 +192,9 @@ public final class Calculations
     
 //////Get functions////////////////////////////////////////////////////////////////////////////////////////////////////
     public InputValues getValues() { return mValues; }
-    public double getMonthlyTotalPaymentAtIndex(int index)      { return mMonthlyTotalPaymentList.get(index); }
     public double getMonthlyLoanRepaymentAtIndex(int index)     { return mMonthlyLoanRepaymentList.get(index); }
     public double getMonthlyInterestPaymentAtIndex(int index)   { return mMonthlyInterestPaymentList.get(index); }
+    public double getMonthlyTotalPaymentAtIndex(int index)      { return mMonthlyTotalPaymentList.get(index); }
     public double getRemainingLoanAmountAtIndex(int index)      { return mRemainingLoanAmountList.get(index); }
     public double getTotalInterestPayment()                     { return mTotalInterestPayment; }
     public double getTotalFee()                                 { return mTotalFee; }
