@@ -1,5 +1,5 @@
 # Mortgage Plan Calculator
-Unlike simplified calculators, this application separates principal, interest, administration fees, and establishment fees, making it easier to see how much value is lost to fees versus actual debt reduction.
+Unlike simplified calculators, this application separates principal, interest, administration fees, and establishment fees, making it easier to see how much value is lost to fees versus actual debt reduction. The choice to choose Java as the programming language was due to interest in increasing width in code knowledge and taking advantage of JavaFX for UI development.
 ![Loan Repayment Calculator interface](https://i.imgur.com/DPszulM.png)
 ![Loan Repayment Plan print](https://i.imgur.com/lq6YvWd.png)
 
